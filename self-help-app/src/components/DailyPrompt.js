@@ -1,31 +1,24 @@
 import React, { useState } from 'react';
+import '../App.css';  // Corrected path
 
 function DailyPrompt() {
   const [rating, setRating] = useState(0);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add functionality to save the daily rating
     console.log('Daily rating:', rating);
   };
 
   return (
-    <div>
+    <div className="form-group">
       <h2>Daily Rating</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          How did you do today? (-5 to +5)
-          <input
-            type="number"
-            value={rating}
-            onChange={(e) => setRating(e.target.value)}
-            min="-5"
-            max="5"
-            required
-          />
-        </label>
-        <button type="submit">Submit Rating</button>
-      </form>
+      <input
+        type="number"
+        value={rating}
+        onChange={(e) => setRating(e.target.value)}
+        placeholder="How did you do today? (-5 to +5)"
+      />
+      <button onClick={handleSubmit}>Submit Rating</button>
     </div>
   );
 }

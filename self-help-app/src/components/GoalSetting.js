@@ -1,27 +1,42 @@
 import React, { useState } from 'react';
+import '../App.css';
 
-function GoalSetting() {
-  const [goal, setGoal] = useState('');
+function GoalSetting({ onGoalSet }) {
+  const [goalName, setGoalName] = useState('');
+  const [goalColor, setGoalColor] = useState('#7289DA');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add functionality to save the goal
-    console.log('Goal set:', goal);
+    if (goalName.trim() === '') {
+      alert('Please enter a goal name.');
+      return;
+    }
+    const newGoal = {
+      name: goalName,
+      color: goalColor,
+    };
+    onGoalSet(newGoal);  // Pass the goal data back to the parent component
+    setGoalName('');  // Clear the input field after setting the goal
   };
 
   return (
-    <div>
-      <h2>Set Your First Goal</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="form-group">
+      <h2>Set Your Goal</h2>
+      <input
+        type="text"
+        value={goalName}
+        onChange={(e) => setGoalName(e.target.value)}
+        placeholder="Enter your goal name"
+      />
+      <div>
+        <label>Goal Color:</label>
         <input
-          type="text"
-          value={goal}
-          onChange={(e) => setGoal(e.target.value)}
-          placeholder="Enter your goal"
-          required
+          type="color"
+          value={goalColor}
+          onChange={(e) => setGoalColor(e.target.value)}
         />
-        <button type="submit">Set Goal</button>
-      </form>
+      </div>
+      <button onClick={handleSubmit}>Set Goal</button>
     </div>
   );
 }

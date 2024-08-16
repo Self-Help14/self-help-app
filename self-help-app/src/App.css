@@ -1,21 +1,79 @@
-.App {
-  text-align: center;
+/* Importing a modern font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* General body styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #2C2F33;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
+/* Header styling */
+h1, h2, h3 {
+    color: #7289DA; /* Accent color */
 }
 
-form {
-  margin: 20px;
-}
-
+/* Input and button styling */
 input, button {
-  margin: 5px;
+    font-family: inherit;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #99AAB5;
+    margin: 10px 0;
+}
+
+/* Specific input field styling */
+input {
+    width: 250px;
+    background-color: #23272A;
+    color: #FFFFFF;
+}
+
+/* Specific button styling */
+button {
+    background-color: #7289DA;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5A6DBA;
+}
+
+/* Container for the entire app content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #40444B;
+    border-radius: 10px;
+}
+
+/* Grouping form elements together */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Styling for the chart container */
+.chart-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: #23272A;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
